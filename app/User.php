@@ -31,4 +31,8 @@ class User extends Authenticatable
     protected $casts = [
         'is_admin' => 'boolean'
     ];
+
+    public static function findByEmail($email){
+        return static::where(compact('email'))->first();
+    }
 }
