@@ -45,7 +45,21 @@ class UserSeeder extends Seeder
             'name' => 'Hector Pinhango',
             'email' => 'hectorp@innovationpi.com',
             'password' => bcrypt('123456'),
+            'profession_id' => $professionId,
+            'is_admin' => true,
+        ]);
+        User::create([
+            'name' => 'Nikola Tesla',
+            'email' => 'tesla@mail.com',
+            'password' => bcrypt('123456'),
             'profession_id' => $professionId
         ]);
+        User::create([
+            'name' => 'Tomas Edison',
+            'email' => 'edison@mail.com',
+            'password' => bcrypt('123456'),
+            'profession_id' => null
+        ]);
+
     }
 }

@@ -28,8 +28,9 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function isAdmin(){
-        return $this->email === 'hectorp@innovationpi.com';
+    public function isAdmin()
+    {
+        return $this->is_admin;
     }
 
     protected $casts = [
@@ -38,5 +39,10 @@ class User extends Authenticatable
 
     public static function findByEmail($email){
         return static::where(compact('email'))->first();
+    }
+
+    public function profession() //busca la columna profession + _id = profession_id
+    {
+        return $this->belongsTo(Profession::class);
     }
 }
