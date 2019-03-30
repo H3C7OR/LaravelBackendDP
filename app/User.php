@@ -28,6 +28,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function isAdmin(){
+        return $this->email === 'hectorp@innovationpi.com';
+    }
+
     protected $casts = [
         'is_admin' => 'boolean'
     ];
