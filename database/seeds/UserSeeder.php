@@ -41,7 +41,7 @@ class UserSeeder extends Seeder
         // ]);
         
         //Utilizando Eloquent:
-        User::create([
+        /*User::create([
             'name' => 'Hector Pinhango',
             'email' => 'hectorp@innovationpi.com',
             'password' => bcrypt('123456'),
@@ -59,7 +59,18 @@ class UserSeeder extends Seeder
             'email' => 'edison@mail.com',
             'password' => bcrypt('123456'),
             'profession_id' => null
+        ]); */
+        factory(User::class)->create([
+            'name' => 'Hector Pinhango',
+            'email' => 'hp@gmail.com',
+            'password' => bcrypt('123456'),
+            'profession_id' => $professionId,
+            'is_admin' => true
         ]);
-
+        factory(User::class)->create([
+            'name' => 'Nikola Tesla',
+            'profession_id' => $professionId
+        ]);
+        factory(User::class)->times(48)->create();
     }
 }
