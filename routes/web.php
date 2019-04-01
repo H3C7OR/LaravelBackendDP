@@ -12,8 +12,7 @@
 */
 
 Route::get('/', function () {
-    return 'Home';
-    // return view('welcome');
+    return view('welcome');
 }); 
 
 Route::get('/usuarios', function(){
@@ -29,6 +28,8 @@ Route::get('/usuarios/nuevo', function() {
 });
 
 Route::get('/saludo/{name}/{nickname?}', function($name, $nickname = null){
+    $name = ucfirst($name);
+    
     if ($nickname != null){
         return "Bienvenido {$name}, tu apodo es {$nickname}";
     }        
